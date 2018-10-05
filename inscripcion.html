@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+    <link rel="stylesheet" href="bootstrap.min.css" />
+
+    <title>FORMULARIO DE INSCRIPCION</title>
+</head>
+
+
+
+<body>
+    <div class="w3-container">
+        <h1>FORMULARIO DE INSCRIPCION</h1>
+        <h2>Curso anual preuniversitario de Ingeniería | Ingreso 2019</h2>
+
+        <!-- ############ FORM ACTION, API O NO :-)  ############ -->
+
+        <form id="postData" action="http://192.168.88.97:8080/api/ficha/alumno/guardar" method="POST" onsubmit="return checkForm(this)">
+            <!-- <form id="postData" method="POST"></form> -->
+
+            <div>
+                <h2>Datos Alumno</h2>
+            </div>
+
+            </p>
+            <div class="form-group">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" class="form-control" id="nombre">
+                </div>
+
+                </p>
+                <div class="form-group">
+                    <label>Apellido</label>
+                    <input type="text" name="apellido" class="form-control" id="apellido">
+                </div>
+
+                </p>
+                <div class="form-group">
+                    <label>Documento</label>
+                    <input type="text" name="documento" class="form-control" id="documento"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Fecha de nacimiento</label>
+                    <input type="text" name="fechaNacimiento" class="form-control" id="fechaNacimiento"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Domicilio</label>
+                    <input type="text" name="domicilio" class="form-control" id="domicilio"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Teléfono alumno</label>
+                    <input type="text" name="telefono" placeholder="código de área sin el cero y celular sin el 15" id="telefono"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="text" name="email" class="form-control" id="email"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Teléfono Contacto</label>
+                    <input type="text" name="telefonoContacto" class="form-control" id="telefonoContacto"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Correo Electrónico Padre</label>
+                    <input type="text" name="emailPadre" class="form-control" id="emailPadre"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>¿Estás haciendo el secundario?</label>
+                    <input type="checkbox" name="haciendoSecundario" class="form-control" id="haciendoSecundario"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Horarios de cursado</label>
+                    <input type="text" name="horariosCursadoSecundario" class="form-control" id="horariosCursadoSecundario"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>¿Trabajás?</label>
+                    <input type="checkbox" name="trabaja" class="form-control" id="trabaja"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Horarios en los que trabajas</label>
+                    <input type="text" name="horariosTrabaja" class="form-control" id="horariosTrabaja"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>¿Realizás alguna otra actividad regularmente?</label>
+                    <input type="checkbox" name="actividad" class="form-control" id="actividad"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Descripción de la actividad</label>
+                    <input type="text" name="descripcionActividad" class="form-control" id="descripcionActividad"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Horarios en los que realiza la actividad</label>
+                    <input type="text" name="horariosActividad" class="form-control" id="horariosActividad"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>¿Por qué querés estudiar en la universidad?</label>
+                    <input type="text" name="porQueEstudiaUniversidad" class="form-control" id="porQueEstudiaUniversidad"></div>
+
+                </p>
+                <label>¿Qué carrera querés estudiar?</label>
+                <div class="form-group">
+                    <select name="cars">
+                        <option value="1">Carrera universitaria 1</option>
+                        <option value="2">Carrera universitaria 2</option>
+                        <option value="3">Carrera universitaria 3</option>
+                        <option value="4">Carrera universitaria 4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>¿Por qué?</label>
+                    <input type="text" name="porQueEstudiaCarrera" class="form-control" id="porQueEstudiaCarrera"></div>
+
+
+
+                </p>
+                <div class="form-group">
+                    <label>¿Te llama la atención alguna otra carrera? ¿Cuál? ¿Por qué?</label>
+                    <input type="text" name="otraCarrera" class="form-control" id="otraCarrera"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>¿Es tu primer intento en ingresar a la universidad?</label>
+                    <input type="text" name="primerIntento" class="form-control" id="primerIntento"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>¿Cuantas horas al día tenés para dedicarle al preuniversitario?</label>
+                    <input type="text" name="horasDedicacionPre" class="form-control" id="horasDedicacionPre"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>¿Cuantas horas al día estás dispuesto a estudiar para alcanzar tu meta?</label>
+                    <input type="text" name="horasEstudio" class="form-control" id="horasEstudio"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>¿Por qué elegiste EGG?</label>
+                    <input type="text" name="porqueElegisteEgg" class="form-control" id="porqueElegisteEgg"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>¿Cómo te enteraste de EGG?</label>
+                    <input type="text" name="comoTeEnterasteEgg" class="form-control" id="comoTeEnterasteEgg"></div>
+
+                <!-- </p>             <div class="form-group">
+            <label>Monto Inscripción</label>
+            <input type="text" name="montoInscripcion" class="form-control" id="montoInscripcion"></div> -->
+
+                <div>
+                    <h2>FICHA MEDICA</h2>
+                </div>
+
+                </p>
+                </p>
+                <div class="form-group">
+                    <label>Diabetes</label>
+                    <input type="checkbox" name="diabetes" class="form-control" id="diabetes"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Hipertensión Arterial</label>
+                    <input type="checkbox" name="hipertensionArterial" class="form-control" id="hipertensionArterial"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Alergias</label>
+                    <input type="checkbox" name="alergias" class="form-control" id="alergias"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Afecciones Respiratoria</label>
+                    <input type="checkbox" name="afeccionRespiratoria" class="form-control" id="afeccionRespiratoria"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Afecciones Cardiovasculares</label>
+                    <input type="checkbox" name="afeccionCardiovascular" class="form-control" id="afeccionCardiovascular"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Afecciones Neurológicas</label>
+                    <input type="checkbox" name="afeccionNeurologica" class="form-control" id="afeccionNeurologica"></div>
+
+                </p>
+                <div class="form-group">
+                    <label>Medicación Permanente</label>
+                    <input type="checkbox" name="medicamentoPermanente" class="form-control" id="medicamentoPermanente"></div>
+
+                </p>
+                </p>
+
+                <!-- ############ SUBMIT BUTTON ############ -->
+
+                <button type="submit">Enviar</button>
+                <!-- <button type="submit" onclick="guardar()">Enviar</button> -->
+                <!-- <input type="submit" value="SEND POST" class="w3-btn w3-blue"> -->
+
+        </form>
+
+    </div>
+
+    <script type="text/javascript">
+
+
+        function checkForm(form)
+  {
+    if(this.name.value == "") {
+      alert("Please enter your Name in the form");
+      this.name.focus();
+      return false;
+    }
+    if(this.email.value == "" || !this.valid_email.checked) {
+      alert("Please enter a valid Email address");
+      this.email.focus();
+      return false;
+    }
+    if(this.age.value == "" || !this.valid_age.checked) {
+      alert("Please enter an Age between 16 and 100");
+      this.age.focus();
+      return false;
+    }
+    alert("Success!  The form has been completed, validated and is ready to be submitted...");
+    return false;
+  }
+
+        function guardar() {
+            $.ajax({
+                url: 'http://192.168.0.185:8080/api/ficha/alumno/guardar',
+                type: 'POST',
+                data: $("#postData").serialize(),
+                success: function (data) {
+                    alert("guardar");
+                    // if (data.error != null) {
+                    // 	bootbox.alert(data.error);
+                    // } else {
+                    // 	window.location = "${ctx}/agenda";
+                    // }
+                }
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>
