@@ -20,17 +20,12 @@
     <title>FORMULARIO DE INSCRIPCION</title>
 </head>
 
-
-
 <body>
     <div class="w3-container">
         <h1>FORMULARIO DE INSCRIPCION</h1>
         <h2>Curso anual preuniversitario de Ingeniería | Ingreso 2019</h2>
 
-        <!-- ############ FORM ACTION, API O NO :-)  ############ -->
-
         <form id="postData" onsubmit="return checkForm(this)">
-            <!-- <form id="postData" method="POST"></form> -->
 
             <div>
                 <h2>Datos Alumno</h2>
@@ -40,44 +35,44 @@
             <div class="form-group">
                 <div class="form-group">
                     <label>Nombre</label>
-                    <input type="text" name="nombre" class="form-control" id="nombre">
+                    <input type="text" name="alumnoModel.nombre" class="form-control" id="nombre">
                 </div>
 
                 </p>
                 <div class="form-group">
                     <label>Apellido</label>
-                    <input type="text" name="apellido" class="form-control" id="apellido">
+                    <input type="text" name="alumnoModel.apellido" class="form-control" id="apellido">
                 </div>
 
                 </p>
                 <div class="form-group">
                     <label>Documento</label>
-                    <input type="text" name="documento" class="form-control" id="documento"></div>
+                    <input type="text" name="alumnoModel.documento" class="form-control" id="documento"></div>
 
                 </p>
                 <div class="form-group">
                     <label>Fecha de nacimiento</label>
-                    <input type="text" name="fechaNacimiento" class="form-control" id="fechaNacimiento"></div>
+                    <input type="text" name="alumnoModel.fechaNacimiento" class="form-control" id="fechaNacimiento"></div>
 
                 </p>
                 <div class="form-group">
                     <label>Domicilio</label>
-                    <input type="text" name="domicilio" class="form-control" id="domicilio"></div>
+                    <input type="text" name="domicilioModel.domicilio" class="form-control" id="domicilio"></div>
 
                 </p>
                 <div class="form-group">
                     <label>Teléfono alumno</label>
-                    <input type="text" name="telefono" placeholder="código de área sin el cero y celular sin el 15" id="telefono"></div>
+                    <input type="text" name="telefonoModel.telefono" placeholder="código de área sin el cero y celular sin el 15" id="telefono"></div>
 
                 </p>
                 <div class="form-group">
                     <label>Correo Electrónico</label>
-                    <input type="text" name="email" class="form-control" id="email"></div>
+                    <input type="text" name="alumnoModel.email" class="form-control" id="email"></div>
 
                 </p>
                 <div class="form-group">
                     <label>Teléfono Contacto</label>
-                    <input type="text" name="telefonoContacto" class="form-control" id="telefonoContacto"></div>
+                    <input type="text" name="telefonoContactoModel.telefono" class="form-control" id="telefonoContacto"></div>
 
                 </p>
                 <div class="form-group">
@@ -160,16 +155,12 @@
                 </p>
                 <div class="form-group">
                     <label>¿Por qué elegiste EGG?</label>
-                    <input type="text" name="porqueElegisteEgg" class="form-control" id="porqueElegisteEgg"></div>
+                    <input type="text" name="porQueElegisteEgg" class="form-control" id="porqueElegisteEgg"></div>
 
                 </p>
                 <div class="form-group">
                     <label>¿Cómo te enteraste de EGG?</label>
                     <input type="text" name="comoTeEnterasteEgg" class="form-control" id="comoTeEnterasteEgg"></div>
-
-                <!-- </p>             <div class="form-group">
-            <label>Monto Inscripción</label>
-            <input type="text" name="montoInscripcion" class="form-control" id="montoInscripcion"></div> -->
 
                 <div>
                     <h2>FICHA MEDICA</h2>
@@ -214,9 +205,6 @@
                 </p>
                 </p>
 
-                <!-- ############ SUBMIT BUTTON ############ -->
-
-                <!-- <button type="submit">Enviar</button> -->
                 <button id="boton" type="button" onclick="guardar()">Enviar</button>
 
         </form>
@@ -225,14 +213,13 @@
 
     <script type="text/javascript">
 
-
+        // Validaciones de campos
         function checkForm(form) {
             if (this.nombre.value == "" || this.apellido.value == "") {
                 alert("El nombre y apellido debe estar completo");
                 this.nombre.focus();
                 return false;
             }
-
 
             if (this.documento.value == "" || isNaN(this.documento.value)) {
                 alert("Ingrese el número de documento sin puntos");
@@ -246,9 +233,10 @@
             //     return false;
             // }
 
-            //alert("Success!  The form has been completed, validated and is ready to be submitted...");
+            alert("Success!  The form has been completed, validated and is ready to be submitted...");
             return true;
         }
+
 
         function guardar() {
 

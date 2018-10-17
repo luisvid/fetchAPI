@@ -1,0 +1,126 @@
+alumnoModel.nombre
+alumnoModel.apellido
+alumnoModel.documento
+alumnoModel.fechaNacimiento
+domicilioModel.domicilio
+telefonoModel.telefono
+alumnoModel.email
+telefonoContactoModel.telefono
+
+emailPadre
+haciendoSecundario bool
+horariosCursadoSecundario
+trabaja bool
+horariosTrabaja
+actividad bool
+descripcionActividad
+horariosActividad
+porQueEstudiaUniversidad
+carrera
+porQueEstudiaCarrera
+otraCarrera
+primerIntento
+horasDedicacionPre
+horasEstudio
+porqueElegisteEgg
+comoTeEnterasteEgg
+
+diabetes
+hipertensionArterial
+alergias
+afeccionRespiratoria
+afeccionCardiovascular
+afeccionNeurologica
+medicamentoPermanente
+
+
+ Nombres a modificar en el name del html de la ficha
+
+    "fechaAlta": null,
+    "fechaBaja": null,
+    "fechaModificacion": null,
+    "idAlumno": null,
+    "id": null,
+    "alumnoModel": {
+        "fechaAlta": null,
+        "fechaBaja": null,
+        "fechaModificacion": null,
+        "idUsuario": null,
+        "id": null,
+        "nombre": null,
+        "apellido": null,
+        "email": null,
+        "telefono": null,
+        "domicilio": null,
+        "documento": null,
+        "domicilioModel": {
+            "calle": null,
+            "localidad": null,
+            "provincia": null,
+            "pais": null,
+            "numeracion": null,
+            "domicilio": null
+        },
+        "telefonoModel": {
+            "area": null,
+            "pais": null,
+            "numero": null,
+            "telefono": null
+        },
+        "valoresAtributos": [],
+        "nombreCompleto": "null null"
+    },
+    "telefonoModel": {
+        "area": null,
+        "pais": null,
+        "numero": null,
+        "telefono": null
+    },
+    "telefonoContactoModel": {
+        "area": null,
+        "pais": null,
+        "numero": null,
+        "telefono": null
+    },
+    "domicilioModel": {
+        "calle": null,
+        "localidad": null,
+        "provincia": null,
+        "pais": null,
+        "numeracion": null,
+        "domicilio": null
+    },
+    "nombre": "sdads",
+    "apellido": "sdads",
+    "email": "",
+    "documento": "21212121",
+    "emailPadre": "",
+    "telefonoContacto": "",
+    "haciendoSecundario": false,
+    "horariosCursadoSecundario": "",
+    "trabaja": false,
+    "horariosTrabaja": "",
+    "actividad": false,
+    "horariosActividad": "",
+    "descripcionActividad": "",
+    "porQueEstudiaUniversidad": "",
+    "porQueEstudiaCarrera": "",
+    "otraCarrera": "",
+    "primerIntento": "",
+    "horasDedicacionPre": "",
+    "horasEstudio": "",
+    "porQueElegisteEgg": null,
+    "comoTeEnterasteEgg": "",
+    "montoInscripcion": 0,
+    "hipertencionArterial": false,
+    "diabetes": false,
+    "alergias": false,
+    "afeccionRespiratoria": false,
+    "afeccionCardiovascular": false,
+    "afeccionNeurologica": false,
+    "medicamentoPermanente": false,
+    "validado": false,
+    "turno": null,
+    "carrera": "1",
+    "estado": "fichanovalidada"
+}
