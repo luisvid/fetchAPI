@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        media="screen" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css" />
 
-    <link rel="stylesheet" href="bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.js"></script>
+
+    <script src="http://bootboxjs.com/bootbox.js"></script>
 
     <title>FORMULARIO DE INSCRIPCION</title>
 </head>
@@ -22,7 +29,7 @@
 
         <!-- ############ FORM ACTION, API O NO :-)  ############ -->
 
-        <form id="postData" action="http://192.168.88.97:8080/api/ficha/alumno/guardar" method="POST" onsubmit="return checkForm(this)">
+        <form id="postData" onsubmit="return checkForm(this)">
             <!-- <form id="postData" method="POST"></form> -->
 
             <div>
@@ -120,7 +127,7 @@
                 </p>
                 <label>¿Qué carrera querés estudiar?</label>
                 <div class="form-group">
-                    <select name="cars">
+                    <select name="carrera">
                         <option value="1">Carrera universitaria 1</option>
                         <option value="2">Carrera universitaria 2</option>
                         <option value="3">Carrera universitaria 3</option>
@@ -130,9 +137,6 @@
                 <div class="form-group">
                     <label>¿Por qué?</label>
                     <input type="text" name="porQueEstudiaCarrera" class="form-control" id="porQueEstudiaCarrera"></div>
-
-
-
                 </p>
                 <div class="form-group">
                     <label>¿Te llama la atención alguna otra carrera? ¿Cuál? ¿Por qué?</label>
@@ -212,9 +216,8 @@
 
                 <!-- ############ SUBMIT BUTTON ############ -->
 
-                <button type="submit">Enviar</button>
-                <!-- <button type="submit" onclick="guardar()">Enviar</button> -->
-                <!-- <input type="submit" value="SEND POST" class="w3-btn w3-blue"> -->
+                <!-- <button type="submit">Enviar</button> -->
+                <button id="boton" type="button" onclick="guardar()">Enviar</button>
 
         </form>
 
@@ -224,37 +227,45 @@
 
 
         function checkForm(form) {
-            if (this.name.value == "") {
-                alert("Please enter your Name in the form");
-                this.name.focus();
+            if (this.nombre.value == "" || this.apellido.value == "") {
+                alert("El nombre y apellido debe estar completo");
+                this.nombre.focus();
                 return false;
             }
-            if (this.email.value == "" || !this.valid_email.checked) {
-                alert("Please enter a valid Email address");
-                this.email.focus();
+
+
+            if (this.documento.value == "" || isNaN(this.documento.value)) {
+                alert("Ingrese el número de documento sin puntos");
+                this.documento.focus();
                 return false;
             }
-            if (this.age.value == "" || !this.valid_age.checked) {
-                alert("Please enter an Age between 16 and 100");
-                this.age.focus();
-                return false;
-            }
-            alert("Success!  The form has been completed, validated and is ready to be submitted...");
-            return false;
+
+            // if (this.email.value == "") {
+            //     alert("Please enter a valid Email address");
+            //     this.email.focus();
+            //     return false;
+            // }
+
+            //alert("Success!  The form has been completed, validated and is ready to be submitted...");
+            return true;
         }
 
         function guardar() {
+
             $.ajax({
-                url: 'http://192.168.0.185:8080/api/ficha/alumno/guardar',
+                url: 'http://localhost:8080/api/ficha/alumno/guardar',
                 type: 'POST',
                 data: $("#postData").serialize(),
                 success: function (data) {
-                    alert("guardar");
-                    // if (data.error != null) {
-                    // 	bootbox.alert(data.error);
-                    // } else {
-                    // 	window.location = "${ctx}/agenda";
-                    // }
+                    if (data.error != null) {
+                        bootbox.alert(data.error);
+                    } else {
+                        bootbox.alert(data.mensaje);
+                        window.location = ".";
+                    }
+                },
+                error: function () {
+                    alert("ERROR");
                 }
             });
         }
