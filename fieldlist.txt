@@ -1,10 +1,10 @@
-alumnoModel.nombre
-alumnoModel.apellido
-alumnoModel.documento
-alumnoModel.fechaNacimiento
+nombre
+apellido
+documento
+fechaNacimiento
 domicilioModel.domicilio
 telefonoModel.telefono
-alumnoModel.email
+email
 telefonoContactoModel.telefono
 
 emailPadre

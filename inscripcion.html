@@ -35,24 +35,24 @@
             <div class="form-group">
                 <div class="form-group">
                     <label>Nombre</label>
-                    <input type="text" name="alumnoModel.nombre" class="form-control" id="nombre">
+                    <input type="text" name="nombre" class="form-control" id="nombre">
                 </div>
 
                 </p>
                 <div class="form-group">
                     <label>Apellido</label>
-                    <input type="text" name="alumnoModel.apellido" class="form-control" id="apellido">
+                    <input type="text" name="apellido" class="form-control" id="apellido">
                 </div>
 
                 </p>
                 <div class="form-group">
                     <label>Documento</label>
-                    <input type="text" name="alumnoModel.documento" class="form-control" id="documento"></div>
+                    <input type="text" name="documento" class="form-control" id="documento"></div>
 
                 </p>
                 <div class="form-group">
                     <label>Fecha de nacimiento</label>
-                    <input type="text" name="alumnoModel.fechaNacimiento" class="form-control" id="fechaNacimiento"></div>
+                    <input type="text" name="fechaNacimiento" class="form-control" id="fechaNacimiento"></div>
 
                 </p>
                 <div class="form-group">
@@ -62,12 +62,13 @@
                 </p>
                 <div class="form-group">
                     <label>Teléfono alumno</label>
-                    <input type="text" name="telefonoModel.telefono" placeholder="código de área sin el cero y celular sin el 15" id="telefono"></div>
+                    <input type="text" name="telefonoModel.telefono" class="form-control" placeholder="código de área sin el cero y celular sin el 15"
+                        id="telefono"></div>
 
                 </p>
                 <div class="form-group">
                     <label>Correo Electrónico</label>
-                    <input type="text" name="alumnoModel.email" class="form-control" id="email"></div>
+                    <input type="text" name="email" class="form-control" id="email"></div>
 
                 </p>
                 <div class="form-group">
@@ -175,7 +176,7 @@
                 </p>
                 <div class="form-group">
                     <label>Hipertensión Arterial</label>
-                    <input type="checkbox" name="hipertensionArterial" class="form-control" id="hipertensionArterial"></div>
+                    <input type="checkbox" name="hipertencionArterial" class="form-control" id="hipertencionArterial"></div>
 
                 </p>
                 <div class="form-group">
@@ -213,49 +214,145 @@
 
     <script type="text/javascript">
 
-        // Validaciones de campos
-        function checkForm(form) {
-            if (this.nombre.value == "" || this.apellido.value == "") {
-                alert("El nombre y apellido debe estar completo");
-                this.nombre.focus();
-                return false;
+        // 
+        function guardar() {
+
+            if (checkForm(postData)) {
+                $.ajax({
+                    url: 'http://localhost:8080/api/ficha/alumno/guardar',
+                    type: 'POST',
+                    data: $("#postData").serialize(),
+                    success: function (data) {
+                        if (data.error != null) {
+                            bootbox.alert(data.error);
+                        } else {
+                            bootbox.alert(data.mensaje);
+                            window.location = "https://eggeducacion.com";
+                        }
+                    },
+                    error: function () {
+                        alert("ERROR");
+                    }
+                });
             }
 
-            if (this.documento.value == "" || isNaN(this.documento.value)) {
-                alert("Ingrese el número de documento sin puntos");
-                this.documento.focus();
-                return false;
-            }
-
-            // if (this.email.value == "") {
-            //     alert("Please enter a valid Email address");
-            //     this.email.focus();
-            //     return false;
-            // }
-
-            alert("Success!  The form has been completed, validated and is ready to be submitted...");
-            return true;
         }
 
 
-        function guardar() {
+        // Validaciones de campos
+        function checkForm(form) {
 
-            $.ajax({
-                url: 'http://localhost:8080/api/ficha/alumno/guardar',
-                type: 'POST',
-                data: $("#postData").serialize(),
-                success: function (data) {
-                    if (data.error != null) {
-                        bootbox.alert(data.error);
-                    } else {
-                        bootbox.alert(data.mensaje);
-                        window.location = ".";
-                    }
-                },
-                error: function () {
-                    alert("ERROR");
-                }
-            });
+            errMsg = "";
+
+            if (this.nombre.value == "" || this.apellido.value == "") {
+                errMsg = "- El nombre y apellido debe estar completo.\n";
+            }
+
+            if (this.documento.value == "" || isNaN(this.documento.value)) {
+                errMsg = errMsg + "- Ingresa el número de documento sin puntos.\n";
+            }
+
+            if (this.fechaNacimiento.value == "" || !isValidDate(this.fechaNacimiento.value)) {
+                errMsg = errMsg + "- Ingresa la fecha de nacimiento con formato día/mes/año.\n";
+            }
+
+            if (this.domicilio.value == "") {
+                errMsg = errMsg + "- Ingresa el domicilio.\n";
+            }
+
+            if (this.telefono.value == "" || isNaN(this.telefono.value)) {
+                errMsg = errMsg + "- Ingresa solo números en el teléfono del alumno.\n";
+            }
+
+            if (!validateEmail(this.email.value)) {
+                errMsg = errMsg + "- Ingresa una dirección de email correcta.\n";
+            }
+
+            if (this.telefonoContacto.value == "" || isNaN(this.telefono.value)) {
+                errMsg = errMsg + "- Ingresa solo números en teléfono de contacto.\n";
+            }
+
+            if (!validateEmail(this.emailPadre.value)) {
+                errMsg = errMsg + "- Ingresa una dirección de email de padre correcta\n";
+            }
+
+            if (this.haciendoSecundario.checked && this.horariosCursadoSecundario.value == "") {
+                errMsg = errMsg + "- Ingresa el horario de cursado de secundario.\n";
+            }
+
+            if (this.trabaja.checked && this.horariosTrabaja.value == "") {
+                errMsg = errMsg + "- Ingresa el horario de trabajo.\n";
+            }
+
+            if (this.actividad.checked && (this.descripcionActividad.value == "" || this.horariosActividad.value == "")) {
+                errMsg = errMsg + "- Completa la información sobre la actididad.\n";
+            }
+
+            if (this.porQueEstudiaUniversidad.value == "") {
+                errMsg = errMsg + "- Contesta porque estudiar en la universidad.\n";
+            }
+
+            if (this.porQueEstudiaCarrera.value == "") {
+                errMsg = errMsg + "- Contesta porque elegiste esa carrera.\n";
+            }
+
+            if (this.horasDedicacionPre.value == "" || isNaN(this.horasDedicacionPre.value)) {
+                errMsg = errMsg + "- Ingresa el número de horas de dedicación al pre.\n";
+            }
+
+            if (this.horasEstudio.value == "" || isNaN(this.horasEstudio.value)) {
+                errMsg = errMsg + "- Ingresa el número de horas de dedicacion al estudio.\n";
+            }
+
+            if (this.porqueElegisteEgg.value == "") {
+                errMsg = errMsg + "- Contesta porque elegiste Egg.\n";
+            }
+
+            if (this.comoTeEnterasteEgg.value == "") {
+                errMsg = errMsg + "- Contesta como te enteraste de Egg.\n";
+            }
+
+            if (errMsg != "") {
+                alert("Se produjeron los siguientes errores al validar el formulario:\n" + errMsg);
+                return false;
+
+            } else {
+                // bootbox.alert("Success!  The form has been completed, validated and is ready to be submitted...");
+                return true;
+            }
+
+            return true;
+        }
+
+        // Validates that the input string is a valid date formatted as "dd/mm/yyyy"
+        function isValidDate(dateString) {
+            // First check for the pattern
+            if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
+                return false;
+
+            // Parse the date parts to integers
+            var parts = dateString.split("/");
+            var day = parseInt(parts[0], 10);
+            var month = parseInt(parts[1], 10);
+            var year = parseInt(parts[2], 10);
+
+            // Check the ranges of month and year
+            if (year < 1000 || year > 3000 || month == 0 || month > 12)
+                return false;
+
+            var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+            // Adjust for leap years
+            if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+                monthLength[1] = 29;
+
+            // Check the range of the day
+            return day > 0 && day <= monthLength[month - 1];
+        }
+
+        function validateEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
         }
 
     </script>
