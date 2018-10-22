@@ -25,188 +25,249 @@
         <h1>FORMULARIO DE INSCRIPCION</h1>
         <h2>Curso anual preuniversitario de Ingeniería | Ingreso 2019</h2>
 
-        <form id="postData" onsubmit="return checkForm(this)">
+        <form id="postData" class="form-horizontal" onsubmit="return checkForm(this)">
+
 
             <div>
                 <h2>Datos Alumno</h2>
             </div>
 
+            <div>
+                </p>
+                </p>
+                </p>
+            </div>
+
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Nombre</label>
+                <div class="col-sm-9">
+                    <input type="text" name="nombre" class="form-control input-lg" id="nombre">
+                </div>
+            </div>
+
             </p>
-            <div class="form-group">
-                <div class="form-group">
-                    <label>Nombre</label>
-                    <input type="text" name="nombre" class="form-control" id="nombre">
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Apellido</label>
+                <div class="col-sm-9">
+                    <input type="text" name="apellido" class="form-control input-lg" id="apellido">
                 </div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Apellido</label>
-                    <input type="text" name="apellido" class="form-control" id="apellido">
-                </div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Documento</label>
+                <div class="col-sm-9"><input type="text" name="documento" class="form-control input-lg" id="documento"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Documento</label>
-                    <input type="text" name="documento" class="form-control" id="documento"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Fecha de nacimiento</label>
+                <div class="col-sm-9"><input type="text" name="fechaNacimiento" class="form-control input-lg" id="fechaNacimiento"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Fecha de nacimiento</label>
-                    <input type="text" name="fechaNacimiento" class="form-control" id="fechaNacimiento"></div>
 
-                </p>
-                <div class="form-group">
-                    <label>Domicilio</label>
-                    <input type="text" name="domicilioModel.domicilio" class="form-control" id="domicilio"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Domicilio</label>
+                <div class="col-sm-9"><input type="text" name="domicilioModel.domicilio" class="form-control input-lg"
+                        id="domicilio"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Teléfono alumno</label>
-                    <input type="text" name="telefonoModel.telefono" class="form-control" placeholder="código de área sin el cero y celular sin el 15"
-                        id="telefono"></div>
 
-                </p>
-                <div class="form-group">
-                    <label>Correo Electrónico</label>
-                    <input type="text" name="email" class="form-control" id="email"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Teléfono alumno</label>
+                <div class="col-sm-9"><input type="text" name="telefonoModel.telefono" class="form-control input-lg"
+                        placeholder="código de área sin el cero y celular sin el 15" id="telefono"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Teléfono Contacto</label>
-                    <input type="text" name="telefonoContactoModel.telefono" class="form-control" id="telefonoContacto"></div>
 
-                </p>
-                <div class="form-group">
-                    <label>Correo Electrónico Padre</label>
-                    <input type="text" name="emailPadre" class="form-control" id="emailPadre"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Correo Electrónico</label>
+                <div class="col-sm-9"><input type="text" name="email" class="form-control input-lg" id="email"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>¿Estás haciendo el secundario?</label>
-                    <input type="checkbox" name="haciendoSecundario" class="form-control" id="haciendoSecundario"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Teléfono Contacto</label>
+                <div class="col-sm-9"><input type="text" name="telefonoContactoModel.telefono" class="form-control input-lg"
+                        id="telefonoContacto"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Horarios de cursado</label>
-                    <input type="text" name="horariosCursadoSecundario" class="form-control" id="horariosCursadoSecundario"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Correo Electrónico Padre</label>
+                <div class="col-sm-9"><input type="text" name="emailPadre" class="form-control input-lg" id="emailPadre"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>¿Trabajás?</label>
-                    <input type="checkbox" name="trabaja" class="form-control" id="trabaja"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">¿Estás haciendo el secundario?</label>
+                <div class="col-sm-9"><input type="checkbox" name="haciendoSecundario" class="form-control input-lg" id="haciendoSecundario"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Horarios en los que trabajas</label>
-                    <input type="text" name="horariosTrabaja" class="form-control" id="horariosTrabaja"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Horarios de cursado</label>
+                <div class="col-sm-9"><input type="text" name="horariosCursadoSecundario" class="form-control input-lg"
+                        id="horariosCursadoSecundario"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>¿Realizás alguna otra actividad regularmente?</label>
-                    <input type="checkbox" name="actividad" class="form-control" id="actividad"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">¿Trabajás?</label>
+                <div class="col-sm-9"><input type="checkbox" name="trabaja" class="form-control input-lg" id="trabaja"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Descripción de la actividad</label>
-                    <input type="text" name="descripcionActividad" class="form-control" id="descripcionActividad"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Horarios en los que trabajas</label>
+                <div class="col-sm-9"><input type="text" name="horariosTrabaja" class="form-control input-lg" id="horariosTrabaja"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Horarios en los que realiza la actividad</label>
-                    <input type="text" name="horariosActividad" class="form-control" id="horariosActividad"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">¿Realizás alguna otra actividad regularmente?</label>
+                <div class="col-sm-9"><input type="checkbox" name="actividad" class="form-control input-lg" id="actividad"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>¿Por qué querés estudiar en la universidad?</label>
-                    <input type="text" name="porQueEstudiaUniversidad" class="form-control" id="porQueEstudiaUniversidad"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Descripción de la actividad</label>
+                <div class="col-sm-9"><input type="text" name="descripcionActividad" class="form-control input-lg" id="descripcionActividad"></div>
+            </div>
 
-                </p>
-                <label>¿Qué carrera querés estudiar?</label>
-                <div class="form-group">
-                    <select name="carrera">
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Horarios en los que realiza la actividad</label>
+                <div class="col-sm-9"><input type="text" name="horariosActividad" class="form-control input-lg" id="horariosActividad"></div>
+            </div>
+
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">¿Por qué querés estudiar en la universidad?</label>
+                <div class="col-sm-9"><input type="text" name="porQueEstudiaUniversidad" class="form-control input-lg"
+                        id="porQueEstudiaUniversidad"></div>
+            </div>
+
+            </p>
+
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">¿Qué carrera querés estudiar?</label>
+                <div class="col-sm-9">
+                    <select name="carrera" class="form-control input-lg">
                         <option value="1">Carrera universitaria 1</option>
                         <option value="2">Carrera universitaria 2</option>
                         <option value="3">Carrera universitaria 3</option>
                         <option value="4">Carrera universitaria 4</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label>¿Por qué?</label>
-                    <input type="text" name="porQueEstudiaCarrera" class="form-control" id="porQueEstudiaCarrera"></div>
-                </p>
-                <div class="form-group">
-                    <label>¿Te llama la atención alguna otra carrera? ¿Cuál? ¿Por qué?</label>
-                    <input type="text" name="otraCarrera" class="form-control" id="otraCarrera"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>¿Es tu primer intento en ingresar a la universidad?</label>
-                    <input type="text" name="primerIntento" class="form-control" id="primerIntento"></div>
-
-                </p>
-                <div class="form-group">
-                    <label>¿Cuantas horas al día tenés para dedicarle al preuniversitario?</label>
-                    <input type="text" name="horasDedicacionPre" class="form-control" id="horasDedicacionPre"></div>
-
-                </p>
-                <div class="form-group">
-                    <label>¿Cuantas horas al día estás dispuesto a estudiar para alcanzar tu meta?</label>
-                    <input type="text" name="horasEstudio" class="form-control" id="horasEstudio"></div>
-
-                </p>
-                <div class="form-group">
-                    <label>¿Por qué elegiste EGG?</label>
-                    <input type="text" name="porQueElegisteEgg" class="form-control" id="porqueElegisteEgg"></div>
-
-                </p>
-                <div class="form-group">
-                    <label>¿Cómo te enteraste de EGG?</label>
-                    <input type="text" name="comoTeEnterasteEgg" class="form-control" id="comoTeEnterasteEgg"></div>
-
-                <div>
-                    <h2>FICHA MEDICA</h2>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">¿Por qué?</label>
+                <div class="col-sm-9">
+                    <input type="text" name="porQueEstudiaCarrera" class="form-control input-lg" id="porQueEstudiaCarrera">
                 </div>
+            </div>
 
-                </p>
-                </p>
-                <div class="form-group">
-                    <label>Diabetes</label>
-                    <input type="checkbox" name="diabetes" class="form-control" id="diabetes"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">¿Te llama la atención alguna otra carrera? ¿Cuál? ¿Por qué?</label>
+                <div class="col-sm-9">
+                    <input type="text" name="otraCarrera" class="form-control input-lg" id="otraCarrera">
+                </div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Hipertensión Arterial</label>
-                    <input type="checkbox" name="hipertencionArterial" class="form-control" id="hipertencionArterial"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">¿Es tu primer intento en ingresar a la universidad?</label>
+                <div class="col-sm-9"><input type="text" name="primerIntento" class="form-control input-lg" id="primerIntento"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Alergias</label>
-                    <input type="checkbox" name="alergias" class="form-control" id="alergias"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">¿Cuantas horas al día tenés para dedicarle al preuniversitario?</label>
+                <div class="col-sm-9"><input type="text" name="horasDedicacionPre" class="form-control input-lg" id="horasDedicacionPre"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Afecciones Respiratoria</label>
-                    <input type="checkbox" name="afeccionRespiratoria" class="form-control" id="afeccionRespiratoria"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">¿Cuantas horas al día estás dispuesto a estudiar para alcanzar tu
+                    meta?</label>
+                <div class="col-sm-9"><input type="text" name="horasEstudio" class="form-control input-lg" id="horasEstudio"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Afecciones Cardiovasculares</label>
-                    <input type="checkbox" name="afeccionCardiovascular" class="form-control" id="afeccionCardiovascular"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">¿Por qué elegiste EGG?</label>
+                <div class="col-sm-9"><input type="text" name="porQueElegisteEgg" class="form-control input-lg" id="porqueElegisteEgg"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Afecciones Neurológicas</label>
-                    <input type="checkbox" name="afeccionNeurologica" class="form-control" id="afeccionNeurologica"></div>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">¿Cómo te enteraste de EGG?</label>
+                <div class="col-sm-9"><input type="text" name="comoTeEnterasteEgg" class="form-control input-lg" id="comoTeEnterasteEgg"></div>
+            </div>
 
-                </p>
-                <div class="form-group">
-                    <label>Medicación Permanente</label>
-                    <input type="checkbox" name="medicamentoPermanente" class="form-control" id="medicamentoPermanente"></div>
+            <div>
+                <h2>FICHA MEDICA</h2>
+            </div>
 
-                </p>
-                </p>
+            </p>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Diabetes</label>
+                <div class="col-sm-9"><input type="checkbox" name="diabetes" class="form-control input-lg" id="diabetes"></div>
+            </div>
 
-                <button id="boton" type="button" onclick="guardar()">Enviar</button>
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Hipertensión Arterial</label>
+                <div class="col-sm-9"><input type="checkbox" name="hipertencionArterial" class="form-control input-lg"
+                        id="hipertencionArterial"></div>
+            </div>
+
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Alergias</label>
+                <div class="col-sm-9"><input type="checkbox" name="alergias" class="form-control input-lg" id="alergias"></div>
+            </div>
+
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Afecciones Respiratoria</label>
+                <div class="col-sm-9"><input type="checkbox" name="afeccionRespiratoria" class="form-control input-lg"
+                        id="afeccionRespiratoria"></div>
+            </div>
+
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Afecciones Cardiovasculares</label>
+                <div class="col-sm-9"><input type="checkbox" name="afeccionCardiovascular" class="form-control input-lg"
+                        id="afeccionCardiovascular"></div>
+            </div>
+
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Afecciones Neurológicas</label>
+                <div class="col-sm-9"><input type="checkbox" name="afeccionNeurologica" class="form-control input-lg"
+                        id="afeccionNeurologica"></div>
+            </div>
+
+            </p>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Medicación Permanente</label>
+                <div class="col-sm-9"><input type="checkbox" name="medicamentoPermanente" class="form-control input-lg"
+                        id="medicamentoPermanente"></div>
+            </div>
+
+            </p>
+            </p>
+
+            <button id="boton" type="button" class="btn btn-primary btn-egg contraste" onclick="guardar()">Enviar</button>
 
         </form>
 

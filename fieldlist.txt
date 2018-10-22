@@ -15,11 +15,12 @@ horariosTrabaja
 actividad bool
 descripcionActividad
 horariosActividad
+
 porQueEstudiaUniversidad
 carrera
 porQueEstudiaCarrera
-otraCarrera
-primerIntento
+otraCarrera (OPCIONAL)
+primerIntento (OPCIONAL)
 horasDedicacionPre
 horasEstudio
 porqueElegisteEgg
