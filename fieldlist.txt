@@ -1,5 +1,5 @@
 Este es un cambio nombre por name
-name
+nombre
 apellido
 documento
 fechaNacimiento
