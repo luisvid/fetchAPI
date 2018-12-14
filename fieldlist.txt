@@ -1,38 +1,6 @@
-nombre
-apellido
-documento
-fechaNacimiento
-domicilioModel.domicilio
-telefonoModel.telefono
-email
-telefonoContactoModel.telefono
 
-emailPadre
-haciendoSecundario bool
-horariosCursadoSecundario
-trabaja bool
-horariosTrabaja
-actividad bool
-descripcionActividad
-horariosActividad
+borramos un buena parte de los campos
 
-porQueEstudiaUniversidad
-carrera
-porQueEstudiaCarrera
-otraCarrera (OPCIONAL)
-primerIntento (OPCIONAL)
-horasDedicacionPre
-horasEstudio
-porqueElegisteEgg
-comoTeEnterasteEgg
-
-diabetes
-hipertensionArterial
-alergias
-afeccionRespiratoria
-afeccionCardiovascular
-afeccionNeurologica
-medicamentoPermanente
 
 
  Nombres a modificar en el name del html de la ficha
