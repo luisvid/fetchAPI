@@ -1,0 +1,66 @@
+h2 {
+	font-family: "Arial Black", Gadget, sans-serif;
+	color: white;
+    text-shadow: 2px 2px 4px #000000;
+	text-align: center;
+}
+h3 {
+	font-family: Helvetica;
+	text-align: center;
+}
+body {	
+	text-align: center;
+	display: flex;
+	color: white;
+	background-size: center;
+	justify-content: center;
+	background-color: rgba(255, 255, 51)
+
+}
+h4 {
+	text-shadow: 2px 1px 2px black;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 4px;
+	border-left: 7px solid #ffff00;
+	background-color: rgba(128, 128, 128, 0.6)
+}
+.content {
+	text-align: left;
+
+}
+.bordes {
+	font-family: Helvetica;
+	background-color: rgba(166, 166, 166, 0.9);
+	border: 5px solid #404040;
+	border-radius: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 10px;
+}
+.fichamedica {
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: 10px;
+	text-align: left;
+	font-weight: 550;
+}
+
+.fichamedica input{
+}
+
+button {
+	background-color: yellow;
+    padding: 8px 19px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    float: center;
+	width: 100px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 4px;
+	font-weight: 650;
+}

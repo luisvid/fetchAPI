@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<meta charset="UTF-8">
+	<TITLE>Formulario de inscripción</TITLE>
+	<link rel="stylesheet" type="text/css" href="style/inscripcion.css">
+</HEAD>
+<BODY>
+<div class="bordes">
+	<div class="content"> 
+	<h2>Formulario de inscripción</h2>
+	<h3>Curso anual preuniversitario de Ingeniería | Ingreso 2019</h3>
+		<h4><P>
+		<INPUT placeholder="Nombre" type=text name=nombre size=20 autofocus>
+		<P>
+		<INPUT placeholder="Apellido" type=text name=apellido size= 20 autofocus>
+		<P>
+		<INPUT placeholder="Número de documento" type=text name=DNI size=20 autofocus>
+		<P>	
+		<INPUT placeholder="Fecha de nacimiento" type=text name=nacimiento size=20 autofocus>
+		<P>
+		<INPUT placeholder="Domicilio" type=text name=domicilio size=20 autofocus></h4>
+		<P>
+		<h4>(Código de área sin el 0 y celular sin el 15)
+		<P>
+		<INPUT placeholder="Teléfono de alumno" type=text name=telefono size=20 autofocus>
+		<P>
+		<INPUT placeholder="Teléfono de contacto" type=text name=telefonopadre size=20 autofocus></h4>
+		<P>
+		<h4><P><INPUT placeholder="Correo electrónico" type=text name=mail size=30 autofocus>
+		<P>
+		<INPUT placeholder="Correo electrónico padre" type=text name=mailpadre size=30 autofocus></h4>
+		<h4>Estoy haciendo el secundario: <INPUT type=checkbox name=secundario>
+		<P>
+		<INPUT placeholder="Horarios de cursado" type=text name=hrcursado size=20 autofocus> </h4>
+		<P>
+		<h4>Trabajo: <INPUT type=checkbox name=trabajo>
+		<P>
+		<INPUT placeholder="Horarios de trabajo" type=text name=hrtrabajo size=20 autofocus> </h4>
+		<P>
+		<h4>Realizo una actividad regularmente <INPUT type=checkbox name=otraactv>
+		<P>
+		<textarea rows="4" cols="50" placeholder="Descripción de la actividad" name=descactv autofocus></textarea>
+		<P>
+		<INPUT placeholder="Horarios de la actividad" type=text name=hractv size=20 autofocus></h4>
+		<P>
+		<h4><textarea rows="4" cols="50" placeholder="¿Por qué querés estudiar en la universidad?" name=razonuni autofocus></textarea>
+		<P>
+		<INPUT placeholder="¿Qué carrera querés estudiar?" type=text name=carrera size=30 autofocus>
+		<P>
+		<textarea rows="4" cols="50" placeholder="¿Por qué?" name=razoncarrera autofocus></textarea>
+		<P>
+		<textarea rows="4" cols="50" placeholder="¿Te llama la atención otra carrera? ¿Cuál? ¿Por qué?" name=otracarrera autofocus></textarea>
+		<P>
+		<INPUT placeholder="¿Es tu primer intento de entrar a la universidad?" type=text name=intento size=50 autofocus> </h4>
+		<P>
+		<h4>¿Cuántas horas al día tenés para dedicarle al pre? <br> <select name=horaspre> </h4>
+		<option>1
+		<option>2
+		<option>3
+		<option>4
+		<option>5+
+		</select>
+		<P>
+		<b>¿Cuántas horas al día estás dispuesto a estudiar para alcanzar tu meta?</b> <br> <select name=horasmeta>
+		<option>1
+		<option>2
+		<option>3
+		<option>4
+		<option>5+
+		</select>
+		<P>
+		<textarea rows="4" cols="50" placeholder="¿Por qué elegiste Egg?" name=razonegg autofocus></textarea>
+		<P>
+		<textarea rows="4" cols="50" placeholder="¿Cómo te enteraste de EGG?" name=comoegg autofocus></textarea> 
+		<P>
+		<h2>Ficha médica</h2>
+		<ul class=fichamedica>
+			<p><INPUT type=checkbox name=fichamedica value="Diabates">Diabetes
+			<p><INPUT type=checkbox name=fichamedica value="Hipertensión arterial">Hipertensión arterial
+			<p><INPUT type=checkbox name=fichamedica value="Alergias">Alergias
+			<p><INPUT type=checkbox name=fichamedica value="Afecciones respiratioras">Afecciones respiratioras
+			<p><INPUT type=checkbox name=fichamedica value="Afecciones cardiovasculares">Afecciones cardiovasculares
+			<p><INPUT type=checkbox name=fichamedica value="Afecciones neurológicas">Afecciones neurológicas
+			<p><INPUT type=checkbox name=fichamedica value="Medicación permanente">Medicación permanente
+		</ul>
+		<p>
+	</div>
+	<button name="btnenviar" onclick="guardar()">Enviar</button>
+</div>
+	<script type="text/javascript">
+
+        // 
+        function guardar() {
+
+            if (checkForm(postData)) {
+                $.ajax({
+                    url: 'http://localhost:8080/api/ficha/alumno/guardar',
+                    type: 'POST',
+                    data: $("#postData").serialize(),
+                    success: function (data) {
+                        if (data.error != null) {
+                            bootbox.alert(data.error);
+                        } else {
+                            bootbox.alert(data.mensaje);
+                            window.location = "https://eggeducacion.com";
+                        }
+                    },
+                    error: function () {
+                        alert("ERROR");
+                    }
+                });
+            }
+
+        }
+
+
+        // Validaciones de campos
+        function checkForm(form) {
+
+            errMsg = "";
+
+            if (this.nombre.value == "" || this.apellido.value == "") {
+                errMsg = "- El nombre y apellido debe estar completo.\n";
+            }
+
+            if (this.documento.value == "" || isNaN(this.documento.value)) {
+                errMsg = errMsg + "- Ingresa el número de documento sin puntos.\n";
+            }
+
+            if (this.fechaNacimiento.value == "" || !isValidDate(this.fechaNacimiento.value)) {
+                errMsg = errMsg + "- Ingresa la fecha de nacimiento con formato día/mes/año.\n";
+            }
+
+            if (this.domicilio.value == "") {
+                errMsg = errMsg + "- Ingresa el domicilio.\n";
+            }
+
+            if (this.telefono.value == "" || isNaN(this.telefono.value)) {
+                errMsg = errMsg + "- Ingresa solo números en el teléfono del alumno.\n";
+            }
+
+            if (!validateEmail(this.email.value)) {
+                errMsg = errMsg + "- Ingresa una dirección de email correcta.\n";
+            }
+
+            if (this.telefonoContacto.value == "" || isNaN(this.telefono.value)) {
+                errMsg = errMsg + "- Ingresa solo números en teléfono de contacto.\n";
+            }
+
+            if (!validateEmail(this.emailPadre.value)) {
+                errMsg = errMsg + "- Ingresa una dirección de email de padre correcta\n";
+            }
+
+            if (this.haciendoSecundario.checked && this.horariosCursadoSecundario.value == "") {
+                errMsg = errMsg + "- Ingresa el horario de cursado de secundario.\n";
+            }
+
+            if (this.trabaja.checked && this.horariosTrabaja.value == "") {
+                errMsg = errMsg + "- Ingresa el horario de trabajo.\n";
+            }
+
+            if (this.actividad.checked && (this.descripcionActividad.value == "" || this.horariosActividad.value == "")) {
+                errMsg = errMsg + "- Completa la información sobre la actididad.\n";
+            }
+
+            if (this.porQueEstudiaUniversidad.value == "") {
+                errMsg = errMsg + "- Contesta porque estudiar en la universidad.\n";
+            }
+
+            if (this.porQueEstudiaCarrera.value == "") {
+                errMsg = errMsg + "- Contesta porque elegiste esa carrera.\n";
+            }
+
+            if (this.horasDedicacionPre.value == "" || isNaN(this.horasDedicacionPre.value)) {
+                errMsg = errMsg + "- Ingresa el número de horas de dedicación al pre.\n";
+            }
+
+            if (this.horasEstudio.value == "" || isNaN(this.horasEstudio.value)) {
+                errMsg = errMsg + "- Ingresa el número de horas de dedicacion al estudio.\n";
+            }
+
+            if (this.porqueElegisteEgg.value == "") {
+                errMsg = errMsg + "- Contesta porque elegiste Egg.\n";
+            }
+
+            if (this.comoTeEnterasteEgg.value == "") {
+                errMsg = errMsg + "- Contesta como te enteraste de Egg.\n";
+            }
+
+            if (errMsg != "") {
+                alert("Se produjeron los siguientes errores al validar el formulario:\n" + errMsg);
+                return false;
+
+            } else {
+                // bootbox.alert("Success!  The form has been completed, validated and is ready to be submitted...");
+                return true;
+            }
+
+            return true;
+        }
+
+        // Validates that the input string is a valid date formatted as "dd/mm/yyyy"
+        function isValidDate(dateString) {
+            // First check for the pattern
+            if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
+                return false;
+
+            // Parse the date parts to integers
+            var parts = dateString.split("/");
+            var day = parseInt(parts[0], 10);
+            var month = parseInt(parts[1], 10);
+            var year = parseInt(parts[2], 10);
+
+            // Check the ranges of month and year
+            if (year < 1000 || year > 3000 || month == 0 || month > 12)
+                return false;
+
+            var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+            // Adjust for leap years
+            if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+                monthLength[1] = 29;
+
+            // Check the range of the day
+            return day > 0 && day <= monthLength[month - 1];
+        }
+
+        function validateEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+
+    </script>
+</BODY>
+</HTML>

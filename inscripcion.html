@@ -23,7 +23,7 @@
 <body>
     <div class="w3-container">
         <h1>FORMULARIO DE INSCRIPCION</h1>
-        <h2>Curso anual preuniversitario de Ingeniería | Ingreso 2019</h2>
+        <h2>Curso anual preuniversitario de Salud, Ingeniería y Arquitectura | Ingreso 2019</h2>
 
         <form id="postData" class="form-horizontal" onsubmit="return checkForm(this)">
 
@@ -157,10 +157,8 @@
                 <label class="col-sm-2 control-label">¿Qué carrera querés estudiar?</label>
                 <div class="col-sm-9">
                     <select name="carrera" class="form-control input-lg">
-                        <option value="1">Carrera universitaria 1</option>
-                        <option value="2">Carrera universitaria 2</option>
-                        <option value="3">Carrera universitaria 3</option>
-                        <option value="4">Carrera universitaria 4</option>
+                        <option value="1">Preuniversitario Salud</option>
+                        <option value="2">Preuniversitario Ingeniería y Arquitectura</option>
                     </select>
                 </div>
             </div>
@@ -275,12 +273,13 @@
 
     <script type="text/javascript">
 
-        // 
+        // http://app.eggeducacion.com/api/ficha/alumno/guardar
+        // http://localhost:8080/api/ficha/alumno/guardar
         function guardar() {
 
             if (checkForm(postData)) {
                 $.ajax({
-                    url: 'http://localhost:8080/api/ficha/alumno/guardar',
+                    url: 'http://app.eggeducacion.com/api/ficha/alumno/guardar',
                     type: 'POST',
                     data: $("#postData").serialize(),
                     success: function (data) {
